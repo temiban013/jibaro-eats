@@ -19,7 +19,9 @@ function SearchBarFallback() {
 }
  
 export default async function Page() {
+    console.log('Before getCloudImages()')
     const cloudImages = await getCloudImages()
+    console.log('after getCloudImages()')
     return (
       <Suspense fallback={<SearchBarFallback/>}>
         <HomePage images={ cloudImages.reducedResults }/>
