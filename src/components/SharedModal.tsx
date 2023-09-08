@@ -186,7 +186,7 @@ import {
                           x: `${Math.max(index * -100, 15 * -100)}%`,
                         }}
                         exit={{ width: '0%' }}
-                        onClick={() => changePhotoId(id)}
+                        //onClick={() => changePhotoId(id)}
                         key={id}
                         className={`${
                           id === index
