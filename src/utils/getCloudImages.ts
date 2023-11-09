@@ -1,4 +1,4 @@
-import cloudinary from "./claudinary"
+import cloudinary from "./cloudinary"
 import getBase64ImageUrl from './generateBlurPlaceholder'
 import type { ImageProps } from './types'
 

@@ -1,4 +1,4 @@
-import cloudinary from './claudinary'
+import cloudinary from './cloudinary'
 
 let cachedResults: any
 

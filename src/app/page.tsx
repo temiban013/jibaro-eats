@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import { Suspense } from 'react'
 import HomePage from '../components/HomePage'
 import getCloudImages from '../utils/getCloudImages'
-import { ImageProps } from '@/utils/types'
 
 export const metadata: Metadata = {
   title: 'Jibaro Eats',
