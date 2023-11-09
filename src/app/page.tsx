@@ -5,11 +5,12 @@ import getCloudImages from '../utils/getCloudImages'
 
 export const metadata: Metadata = {
   title: 'Jibaro Eats',
+  description: 'Eating Jibaro-style. Digital services for eateries.',
   openGraph: {
-    images: '/og-image.png'
+    images: 'https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_1080/v1694092635/Jibaro-Eats/SAM_7866_b7ummj.jpg'
   },
   twitter: {
-    images: '/og-image.png'
+    images: 'https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_1080/v1694092635/Jibaro-Eats/SAM_7866_b7ummj.jpg'
   }
 }
 
