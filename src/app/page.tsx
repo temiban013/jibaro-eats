@@ -1,5 +1,6 @@
+
 import { Metadata } from 'next'
-import { Suspense } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import HomePage from '../components/HomePage'
 import getCloudImages from '../utils/getCloudImages'
 
@@ -19,12 +20,10 @@ function SearchBarFallback() {
 }
  
 export default async function Page() {
-    console.log('Before getCloudImages()')
-    const cloudImages = await getCloudImages()
-    console.log('after getCloudImages()')
-    return (
-      <Suspense fallback={<SearchBarFallback/>}>
-        <HomePage images={ cloudImages.reducedResults }/>
-      </Suspense>
-    )
+  const cloudImages = await getCloudImages('jibaro-Eats')
+  return (
+    <Suspense fallback={<SearchBarFallback/>}>
+      <HomePage images={ cloudImages.reducedResults } jibaroName='Jibaro Eats'/>
+    </Suspense>
+  )
 }

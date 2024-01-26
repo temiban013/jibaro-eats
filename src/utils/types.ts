@@ -1,12 +1,19 @@
 /* eslint-disable no-unused-vars */
 export interface ImageProps {
-    id: number
+    id: string
     height: string
     width: string
     public_id: string
     format: string
     blurDataUrl?: string
+    title:string
   }
+  
+export interface VideoProps {
+  id: string;
+  videoId: string;
+  title: string;
+}
   
   export interface SharedModalProps {
     index: number

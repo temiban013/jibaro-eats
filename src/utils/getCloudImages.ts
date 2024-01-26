@@ -2,9 +2,10 @@ import cloudinary from "./cloudinary"
 import getBase64ImageUrl from './generateBlurPlaceholder'
 import type { ImageProps } from './types'
 
-export default async function getCloudImages() {
+export default async function getCloudImages(folder: string) {
   const results = await cloudinary.v2.search
-    .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)
+    .expression(`folder:${folder}/*`)
+    .with_field('metadata')
     .sort_by('public_id', 'desc')
     .max_results(400)
     .execute()
@@ -14,11 +15,12 @@ export default async function getCloudImages() {
   let i = 0
   for (let result of results.resources) {
     reducedResults.push({
-      id: i,
+      id: i.toString(),
       height: result.height,
       width: result.width,
       public_id: result.public_id,
       format: result.format,
+      title: result.metadata && result.metadata.title,
     })
     i++
   }
