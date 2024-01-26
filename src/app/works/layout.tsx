@@ -10,7 +10,7 @@ export const metadata: Metadata = {
       icon: '/favicon.ico'
   },
   title: 'Jibaro Works',
-  description: 'Eating Jibaro-style. Digital services for eateries.',
+  description: 'Digital Design and Film Production.',
   alternates: {
       canonical: '/works',
       languages: {
@@ -20,17 +20,17 @@ export const metadata: Metadata = {
   },
   openGraph: {
       siteName: 'JibaroEats.com/works',
-      description: 'Eating Jibaro-style. Digital services for eateries.',
+      description: 'Digital Design and Film Production.',
       title: 'Jibaro Works',
       locale: 'en-US',
-      images: 'https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_1080/v1694092635/Jibaro-Eats/SAM_7866_b7ummj.jpg',
+      images: 'https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_1080/v1694092635/Jibaro-Eats/IMG_8043_loyyzw.jpg',
       videos: 'https://www.youtube.com/watch?v=ti2ob5111g8'
   },
   twitter: {
       card: 'summary_large_image',
       title: 'Jibaro Works',
-      images: 'https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_1080/v1694092635/Jibaro-Eats/SAM_7866_b7ummj.jpg',
-      description: 'Eating Jibaro-style. Digital services for eateries.',
+      images: 'https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_1080/v1694092635/Jibaro-Eats/IMG_8043_loyyzw.jpg',
+      description: 'Digital Design and Film Production.',
   }
 }
 
