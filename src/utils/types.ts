@@ -7,6 +7,7 @@ export interface ImageProps {
     format: string
     blurDataUrl?: string
     title:string
+    videoId:string
   }
   
 export interface VideoProps {

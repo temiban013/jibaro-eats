@@ -1,38 +1,65 @@
-import cloudinary from "./cloudinary"
-import getBase64ImageUrl from './generateBlurPlaceholder'
-import type { ImageProps } from './types'
+import cloudinary from "./cloudinary";
+import getBase64ImageUrl from "./generateBlurPlaceholder";
+import type { ImageProps } from "./types";
 
 export default async function getCloudImages(folder: string) {
-  const results = await cloudinary.v2.search
-    .expression(`folder:${folder}/*`)
-    .with_field('metadata')
-    .sort_by('public_id', 'desc')
-    .max_results(400)
-    .execute()
+  try {
+    // Validate folder name
+    if (!folder) {
+      console.error("Folder name is required");
+      return { reducedResults: [] };
+    }
 
-    let reducedResults: ImageProps[] = []
+    const results = await cloudinary.v2.search
+      .expression(`folder:${folder}/*`)
+      .with_field("metadata")
+      .sort_by("public_id", "desc")
+      .max_results(400)
+      .execute();
 
-  let i = 0
-  for (let result of results.resources) {
-    reducedResults.push({
-      id: i.toString(),
-      height: result.height,
-      width: result.width,
-      public_id: result.public_id,
-      format: result.format,
-      title: result.metadata && result.metadata.title,
-    })
-    i++
+    console.log(`Found ${results.resources.length} images`);
+    console.log("First result:", results.resources[0]);
+
+    // Validate that we have results
+    if (!results?.resources) {
+      console.error("No resources found in Cloudinary response");
+      return { reducedResults: [] };
+    }
+
+    let reducedResults: ImageProps[] = [];
+
+    let i = 0;
+    for (let result of results.resources) {
+      // Only add the result if it has the required properties
+      if (result && result.public_id) {
+        reducedResults.push({
+          id: i.toString(),
+          height: result.height || 0,
+          width: result.width || 0,
+          public_id: result.public_id,
+          format: result.format || "",
+          title: result.metadata?.title || "",
+          videoId: result.metadata?.videoId || "",
+        });
+        i++;
+      }
+    }
+
+    // Only process blur images if we have results
+    if (reducedResults.length > 0) {
+      const blurImagePromises = reducedResults.map((image: ImageProps) => {
+        return getBase64ImageUrl(image);
+      });
+      const imagesWithBlurDataUrls = await Promise.all(blurImagePromises);
+
+      for (let i = 0; i < reducedResults.length; i++) {
+        reducedResults[i].blurDataUrl = imagesWithBlurDataUrls[i];
+      }
+    }
+
+    return { reducedResults };
+  } catch (error) {
+    console.error("Error in getCloudImages:", error);
+    return { reducedResults: [] };
   }
-
-    const blurImagePromises = results.resources.map((image: ImageProps) => {
-    return getBase64ImageUrl(image)
-  })
-  const imagesWithBlurDataUrls = await Promise.all(blurImagePromises)
-
-    for (let i = 0; i < reducedResults.length; i++) {
-    reducedResults[i].blurDataUrl = imagesWithBlurDataUrls[i]
-  }
-
-    return { reducedResults }
 }

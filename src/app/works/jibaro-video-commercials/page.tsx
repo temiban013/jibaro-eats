@@ -88,9 +88,14 @@
     ]  
    
   export default async function Page() {
+    const cloudImages = await getCloudImages('Jibaro-Video-Commercials')
     return (
       <Suspense fallback={<SearchBarFallback/>}>
-        <VideoPage videos={ videos } jibaroName='Jibaro Video Commercial'/>
+        <VideoPage 
+          videos={ videos } 
+          images={ cloudImages.reducedResults } 
+          jibaroName='Jibaro Video Commercial'
+        />
       </Suspense>
     )
   }  
