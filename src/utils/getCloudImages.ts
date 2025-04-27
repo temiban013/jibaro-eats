@@ -17,21 +17,18 @@ export default async function getCloudImages(folder: string) {
       .max_results(400)
       .execute();
 
-    console.log(`Found ${results.resources.length} images`);
-    console.log("First result:", results.resources[0]);
-
     // Validate that we have results
     if (!results?.resources) {
       console.error("No resources found in Cloudinary response");
       return { reducedResults: [] };
     }
 
-    let reducedResults: ImageProps[] = [];
+    const reducedResults: ImageProps[] = [];
 
     let i = 0;
-    for (let result of results.resources) {
+    for (const result of results.resources) {
       // Only add the result if it has the required properties
-      if (result && result.public_id) {
+      if (result?.public_id) {
         reducedResults.push({
           id: i.toString(),
           height: result.height || 0,
