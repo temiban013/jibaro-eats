@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { ImageProps } from "@/utils/types";
+import type { ImageProps } from "@/utils/types";
 
 export default function WorksPage({ images }: { images: ImageProps[] }) {
   const router = useRouter();
@@ -18,15 +18,6 @@ export default function WorksPage({ images }: { images: ImageProps[] }) {
       <main className="mx-auto max-w-[1960px] p-4">
         <div className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
           <div className="after:content group relative mb-5 block w-full after:pointer-events-none">
-            <div className="flex justify-center sm:justify-start sm:p-10 sm:pl-12 pb-2">
-              <nav className="flex flex-row space-x-4 whitespace-nowrap text-lg sm:text-xl">
-                <Link href="/" className="text-blue-500 hover:text-blue-700">
-                  Home
-                </Link>
-                {/* <Link href="#" className="text-blue-500 hover:text-blue-700">About</Link>
-                  <Link href="#" className="text-blue-500 hover:text-blue-700">Contact Us</Link> */}
-              </nav>
-            </div>
             <div className="text-center bg-black text-white/80 sm:text-left sm:pl-12 pt-2 sm:pb-6">
               <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl">
                 Jíbaro Works
@@ -68,12 +59,13 @@ export default function WorksPage({ images }: { images: ImageProps[] }) {
               <div className="absolute inset-0 flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100">
                 <p className="text-2xl font-bold text-white">{title}</p>
               </div>
-              <div
+              <button
+                type="button"
                 onClick={() => navigateToTitle(title.toLowerCase())}
-                className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                className="absolute inset-0 flex items-center justify-center cursor-pointer bg-transparent border-0"
               >
-                {/* Add a transparent div with an onClick handler to navigate to the title */}
-              </div>
+                {/* Add a transparent button with an onClick handler to navigate to the title */}
+              </button>
             </div>
           ))}
         </div>
