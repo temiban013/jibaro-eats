@@ -71,7 +71,7 @@ export default function AboutPage() {
         <div className="flex justify-center items-center">
           <div className="relative w-full max-w-md h-96">
             <Image
-              src="https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg"
+              src="https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1694092680/Jibaro-Eats/SAM_7900_koubw1.jpg"
               alt="Jibaro Media Logo"
               fill
               className="object-contain"
