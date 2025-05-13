@@ -16,6 +16,13 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  // Hardcoded image paths for the "Recent Work" section
+  const workImages = [
+    "v1694092673/Jibaro-Eats/SAM_0880_rqbndo.jpg",
+    "v1694092680/Jibaro-Eats/SAM_8870_bfah5u.jpg",
+    "v1694092670/Jibaro-Eats/_SAM6463_iz9g4k.jpg",
+  ];
+
   return (
     <main className="mx-auto max-w-[1960px] p-4">
       <div className="flex justify-center sm:justify-start sm:p-10 sm:pl-12 pb-2">
@@ -122,15 +129,14 @@ export default function AboutPage() {
         <h2 className="text-3xl font-bold mb-6">Recent Work</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* This would be dynamically populated in a real implementation */}
-          {[1, 2, 3].map((index) => (
+          {workImages.map((imagePath) => (
             <div
-              key={index}
+              key={imagePath}
               className="group relative h-64 rounded-lg overflow-hidden"
             >
               <Image
-                src={`https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705793126/Jibaro-Works/DSCF670${index}_uqxjls.jpg`}
-                alt={`Portfolio example ${index}`}
+                src={`https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/${imagePath}`}
+                alt={`Portfolio example ${imagePath}`}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
