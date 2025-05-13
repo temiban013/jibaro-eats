@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import type { FormEvent } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import type { ContactFormState } from "@/types/contact";
 
 export default function ContactForm() {
-  const [formState, setFormState] = useState({
+  const [formState, setFormState] = useState<ContactFormState>({
     firstName: "",
     lastName: "",
     email: "",
@@ -15,6 +17,8 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -26,17 +30,76 @@ export default function ContactForm() {
     }));
   };
 
+  const handleRecaptchaChange = (token: string | null) => {
+    setRecaptchaValue(token);
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    // Validate reCAPTCHA
+    if (!recaptchaValue) {
+      setSubmitError("Please complete the reCAPTCHA verification.");
+      return;
+    }
+    // Validate form
+    const validateForm = (): string | null => {
+      // Email validation regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!formState.firstName.trim()) {
+        return "First name is required";
+      }
+      if (!formState.lastName.trim()) {
+        return "Last name is required";
+      }
+      if (!formState.email.trim()) {
+        return "Email is required";
+      }
+      if (!emailRegex.test(formState.email)) {
+        return "Please enter a valid email address";
+      }
+      if (!formState.subject.trim()) {
+        return "Subject is required";
+      }
+      if (!formState.message.trim()) {
+        return "Message is required";
+      }
+      if (!recaptchaValue) {
+        return "Please complete the reCAPTCHA verification";
+      }
+
+      return null;
+    };
+
+    const validationError = validateForm();
+    if (validationError) {
+      setSubmitError(validationError);
+      return;
+    }
     setIsSubmitting(true);
     setSubmitError("");
 
     try {
-      // This is where you would integrate with a form submission backend
-      // For now, we'll simulate a successful submission
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formState,
+          recaptchaToken: recaptchaValue,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Something went wrong!");
+      }
 
       setSubmitSuccess(true);
+
       // Reset form after successful submission
       setFormState({
         firstName: "",
@@ -45,9 +108,15 @@ export default function ContactForm() {
         subject: "",
         message: "",
       });
+
+      // Reset reCAPTCHA
+      recaptchaRef.current?.reset();
+      setRecaptchaValue(null);
     } catch (error) {
       setSubmitError(
-        "There was an error submitting the form. Please try again."
+        error instanceof Error
+          ? error.message
+          : "There was an error submitting the form. Please try again."
       );
     } finally {
       setIsSubmitting(false);
@@ -129,7 +198,16 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           rows={5}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-2 border text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      {/* reCAPTCHA */}
+      <div className="flex justify-center">
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+          onChange={handleRecaptchaChange}
         />
       </div>
 
@@ -152,9 +230,11 @@ export default function ContactForm() {
       <div className="flex justify-center">
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !recaptchaValue}
           className={`px-6 py-3 bg-black text-white rounded-md transition-colors hover:bg-gray-800 ${
-            isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+            isSubmitting || !recaptchaValue
+              ? "opacity-70 cursor-not-allowed"
+              : ""
           }`}
         >
           {isSubmitting ? "Sending..." : "Submit"}

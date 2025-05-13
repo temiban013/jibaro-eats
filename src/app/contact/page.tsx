@@ -17,6 +17,35 @@ export const metadata: Metadata = {
   },
 };
 
+// Define portfolio images array with known working URLs
+const portfolioImages = [
+  {
+    id: 1,
+    src: "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_400/v1705793126/Jibaro-Works/DSCF6708_uqxjls.jpg",
+    alt: "Music photography sample",
+  },
+  {
+    id: 2,
+    src: "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_400/v1705793118/Jibaro-Works/DSC_0033_uet4qw.jpg",
+    alt: "Street photography sample",
+  },
+  {
+    id: 3,
+    src: "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_400/v1705793123/Jibaro-Works/IMG_4152_jpafzn.jpg",
+    alt: "Event photography sample",
+  },
+  {
+    id: 4,
+    src: "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_400/v1705793129/Jibaro-Works/SAM_3297-2_loonfg.jpg",
+    alt: "Nature photography sample",
+  },
+  {
+    id: 5,
+    src: "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_400/v1705793215/Jibaro-Works/IMG_1671_1_t4uxso.jpg",
+    alt: "Sports photography sample",
+  },
+];
+
 export default function ContactPage() {
   return (
     <main className="mx-auto max-w-[1960px] p-4">
@@ -155,19 +184,23 @@ export default function ContactPage() {
         </div>
 
         <div className="relative">
-          <div className="bg-gray-100 rounded-lg p-8 shadow-lg">
-            <h2 className="text-2xl font-semibold mb-6">Send Us a Message</h2>
-            <ContactForm />
-          </div>
+          <div className="bg-black text-white rounded-lg p-8 shadow-lg relative overflow-hidden">
+            {/* Logo watermark as background */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-10 z-0">
+              <Image
+                src="https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg"
+                alt="Logo Watermark"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 48"
+              />
+            </div>
 
-          <div className="absolute w-96 h-96 -bottom-20 -right-20 -z-10 opacity-10">
-            <Image
-              src="https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg"
-              alt="Logo Watermark"
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 100vw, 400px"
-            />
+            {/* Form content */}
+            <div className="relative z-10">
+              <h2 className="text-2xl font-semibold mb-6">Send Us a Message</h2>
+              <ContactForm />
+            </div>
           </div>
         </div>
       </div>
@@ -176,14 +209,14 @@ export default function ContactPage() {
         <h2 className="text-3xl font-bold mb-6">Portfolio Highlights</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-          {[1, 2, 3, 4, 5].map((index) => (
+          {portfolioImages.map((image) => (
             <div
-              key={index}
+              key={image.id}
               className="group relative h-48 rounded-lg overflow-hidden"
             >
               <Image
-                src={`https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_400/v1705793${100 + index}/Jibaro-Works/DSC_00${30 + index}_uet4qw.jpg`}
-                alt={`Portfolio example ${index}`}
+                src={image.src}
+                alt={image.alt}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw"
