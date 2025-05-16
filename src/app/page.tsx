@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   description: "Eating Jibaro-style. Digital services for eateries.",
   openGraph: {
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_1080/v1694092635/Jibaro-Eats/SAM_7866_b7ummj.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_1080/v1694092635/Jibaro-Eats/SAM_7866_b7ummj.jpg",
   },
   twitter: {
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_1080/v1694092635/Jibaro-Eats/SAM_7866_b7ummj.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_1080/v1694092635/Jibaro-Eats/SAM_7866_b7ummj.jpg",
   },
 };
 

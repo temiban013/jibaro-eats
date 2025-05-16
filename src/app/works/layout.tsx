@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     title: "Jibaro Works",
     locale: "en-US",
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_1080/v1694092635/Jibaro-Eats/IMG_8043_loyyzw.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_1080/v1694092635/Jibaro-Eats/IMG_8043_loyyzw.jpg",
     videos: "https://www.youtube.com/watch?v=ti2ob5111g8",
   },
   twitter: {
     card: "summary_large_image",
     title: "Jibaro Works",
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_1080/v1694092635/Jibaro-Eats/IMG_8043_loyyzw.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_1080/v1694092635/Jibaro-Eats/IMG_8043_loyyzw.jpg",
     description: "Digital Design and Film Production.",
   },
 };

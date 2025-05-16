@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   description: "Professional Film Production by Frank Vázquez",
   openGraph: {
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705794357/Jibaro-Works/image-asset_4_c698yr.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1705794357/Jibaro-Works/image-asset_4_c698yr.jpg",
   },
   twitter: {
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705794357/Jibaro-Works/image-asset_4_c698yr.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1705794357/Jibaro-Works/image-asset_4_c698yr.jpg",
   },
 };
 

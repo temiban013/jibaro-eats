@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
+import { debounce } from "lodash";
 import { useSwipeable } from "react-swipeable";
 import type { ImageProps } from "@/utils/types";
 
@@ -38,28 +39,26 @@ export default function PhotoCarousel({
   useEffect(() => {
     let timeout: NodeJS.Timeout;
 
-    const resetTimer = () => {
+    const handleMouseMove = debounce(() => {
       clearTimeout(timeout);
       setShowControls(true);
 
       timeout = setTimeout(() => {
         setShowControls(false);
       }, 3000);
-    };
+    }, 100);
 
-    resetTimer();
-
-    window.addEventListener("mousemove", resetTimer);
-    window.addEventListener("mousedown", resetTimer);
-    window.addEventListener("keydown", resetTimer);
-    window.addEventListener("touchstart", resetTimer);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousedown", handleMouseMove);
+    window.addEventListener("keydown", handleMouseMove);
+    window.addEventListener("touchstart", handleMouseMove);
 
     return () => {
       clearTimeout(timeout);
-      window.removeEventListener("mousemove", resetTimer);
-      window.removeEventListener("mousedown", resetTimer);
-      window.removeEventListener("keydown", resetTimer);
-      window.removeEventListener("touchstart", resetTimer);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousedown", handleMouseMove);
+      window.removeEventListener("keydown", handleMouseMove);
+      window.removeEventListener("touchstart", handleMouseMove);
     };
   }, []);
 
@@ -133,11 +132,11 @@ export default function PhotoCarousel({
             </div>
           )}
           <Image
-            src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_1080/${currentImage.public_id}.${currentImage.format}`}
+            src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/q_auto,f_auto,c_scale,w_1080/${currentImage.public_id}.${currentImage.format}`}
             alt={currentImage.title || "Gallery image"}
             fill
             className={`object-contain transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
-            sizes="90vw"
+            sizes="(max-width: 480px) 95vw, (max-width: 640px) 90vw, (max-width: 1280px) 50vw, (max-width: 1536px) 33vw, 25vw"
             priority
             onLoadingComplete={() => setIsLoading(false)}
           />
@@ -201,30 +200,36 @@ export default function PhotoCarousel({
         }`}
       >
         <div className="flex justify-center space-x-2 px-4 mb-16">
-          {images.map((image, index) => (
-            <button
-              type="button"
-              key={image.id}
-              onClick={() => {
-                setIsLoading(true);
-                setCurrentIndex(index);
-              }}
-              className={`relative h-16 w-16 flex-shrink-0 rounded-md overflow-hidden transition-opacity ${
-                index === currentIndex
-                  ? "ring-2 ring-blue-500"
-                  : "opacity-70 hover:opacity-100"
-              }`}
-              aria-label={`View image ${index + 1}`}
-            >
-              <Image
-                src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_100/${image.public_id}.${image.format}`}
-                alt={image.title || `Thumbnail ${index + 1}`}
-                fill
-                className="object-cover"
-                sizes="64px"
-              />
-            </button>
-          ))}
+          {images
+            .slice(
+              Math.max(0, currentIndex - 2),
+              Math.min(images.length, currentIndex + 3)
+            )
+            .map((image, idx) => (
+              <button
+                type="button"
+                key={image.id}
+                onClick={() => {
+                  setIsLoading(true);
+                  setCurrentIndex(currentIndex - 2 + idx);
+                }}
+                className={`relative h-16 w-16 flex-shrink-0 rounded-md overflow-hidden transition-opacity ${
+                  currentIndex - 2 + idx === currentIndex
+                    ? "ring-2 ring-blue-500"
+                    : "opacity-70 hover:opacity-100"
+                }`}
+                aria-label={`View image ${currentIndex - 2 + idx + 1}`}
+              >
+                <Image
+                  src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/q_auto,f_auto,c_scale,w_100/${image.public_id}.${image.format}`}
+                  alt={image.title || `Thumbnail ${currentIndex - 2 + idx + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 480px) 95vw, (max-width: 640px) 90vw, (max-width: 1280px) 50vw, (max-width: 1536px) 33vw, 25vw"
+                  loading="lazy"
+                />
+              </button>
+            ))}
         </div>
 
         {/* Image info - Now embedded within the thumbnail area at the bottom */}

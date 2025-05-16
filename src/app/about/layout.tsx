@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "About Jibaro Media",
     locale: "en-US",
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg",
   },
   authors: [
     { name: "Jibaro Media", url: "https://www.jibaromedia.com" },
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Jibaro Media",
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg",
     description:
       "Professional photography and media production by Frank Vázquez",
   },

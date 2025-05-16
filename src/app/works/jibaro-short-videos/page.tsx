@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   description: "Professional 30 Seconds Video Spot Production by Frank Vázquez",
   openGraph: {
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705794360/Jibaro-Works/image-asset_5_lnl0o1.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1705794360/Jibaro-Works/image-asset_5_lnl0o1.jpg",
   },
   twitter: {
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705794360/Jibaro-Works/image-asset_5_lnl0o1.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1705794360/Jibaro-Works/image-asset_5_lnl0o1.jpg",
   },
 };
 

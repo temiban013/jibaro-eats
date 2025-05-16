@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description: "Professional photography and media production by Frank Vázquez",
   openGraph: {
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg",
   },
   twitter: {
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg",
   },
 };
 
@@ -78,11 +78,11 @@ export default function AboutPage() {
         <div className="flex justify-center items-center">
           <div className="relative w-full max-w-md h-96">
             <Image
-              src="https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1694092680/Jibaro-Eats/SAM_7900_koubw1.jpg"
+              src="https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1694092680/Jibaro-Eats/SAM_7900_koubw1.jpg"
               alt="Jibaro Media Logo"
               fill
               className="object-contain"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 480px) 95vw, (max-width: 640px) 90vw, (max-width: 1280px) 50vw, (max-width: 1536px) 33vw, 25vw"
             />
           </div>
         </div>
@@ -135,11 +135,11 @@ export default function AboutPage() {
               className="group relative h-64 rounded-lg overflow-hidden"
             >
               <Image
-                src={`https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/${imagePath}`}
+                src={`https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/${imagePath}`}
                 alt={`Portfolio example ${imagePath}`}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 480px) 95vw, (max-width: 640px) 90vw, (max-width: 1280px) 50vw, (max-width: 1536px) 33vw, 25vw"
               />
               <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <Link

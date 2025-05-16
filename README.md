@@ -2,7 +2,7 @@
 
 A professional photography and video portfolio website built with Next.js, Tailwind CSS, and Cloudinary integration.
 
-![Jibaro Media Portfolio](https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg)
+![Jibaro Media Portfolio](https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg)
 
 ## 📋 Overview
 

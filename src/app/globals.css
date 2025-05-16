@@ -16,6 +16,16 @@
   }
 }
 
+@media (max-width: 768px) {
+  .will-change-auto {
+    will-change: auto;
+  }
+
+  .transform {
+    transform: none !important;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -27,7 +37,7 @@ body {
 }
 
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
-  img[loading='lazy'] {
+  img[loading="lazy"] {
     clip-path: inset(0.6px);
   }
 }

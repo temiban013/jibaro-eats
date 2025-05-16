@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     "Get in touch with our team for photography and media production services",
   openGraph: {
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705793123/Jibaro-Works/IMG_4152_jpafzn.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1705793123/Jibaro-Works/IMG_4152_jpafzn.jpg",
   },
   twitter: {
     images:
-      "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705793123/Jibaro-Works/IMG_4152_jpafzn.jpg",
+      "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1705793123/Jibaro-Works/IMG_4152_jpafzn.jpg",
   },
 };
 
@@ -21,27 +21,27 @@ export const metadata: Metadata = {
 const portfolioImages = [
   {
     id: 1,
-    src: "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_400/v1705793126/Jibaro-Works/DSCF6708_uqxjls.jpg",
+    src: "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_400/v1705793126/Jibaro-Works/DSCF6708_uqxjls.jpg",
     alt: "Music photography sample",
   },
   {
     id: 2,
-    src: "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_400/v1705793118/Jibaro-Works/DSC_0033_uet4qw.jpg",
+    src: "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_400/v1705793118/Jibaro-Works/DSC_0033_uet4qw.jpg",
     alt: "Street photography sample",
   },
   {
     id: 3,
-    src: "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_400/v1705793123/Jibaro-Works/IMG_4152_jpafzn.jpg",
+    src: "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_400/v1705793123/Jibaro-Works/IMG_4152_jpafzn.jpg",
     alt: "Event photography sample",
   },
   {
     id: 4,
-    src: "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_400/v1705793129/Jibaro-Works/SAM_3297-2_loonfg.jpg",
+    src: "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_400/v1705793129/Jibaro-Works/SAM_3297-2_loonfg.jpg",
     alt: "Nature photography sample",
   },
   {
     id: 5,
-    src: "https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_400/v1705793215/Jibaro-Works/IMG_1671_1_t4uxso.jpg",
+    src: "https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_400/v1705793215/Jibaro-Works/IMG_1671_1_t4uxso.jpg",
     alt: "Sports photography sample",
   },
 ];
@@ -188,11 +188,11 @@ export default function ContactPage() {
             {/* Logo watermark as background */}
             <div className="absolute inset-0 flex items-center justify-center opacity-10 z-0">
               <Image
-                src="https://res.cloudinary.com/drc0myo7z/image/upload/c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg"
+                src="https://res.cloudinary.com/drc0myo7z/image/upload/q_auto,f_auto,c_scale,w_720/v1705793107/Jibaro-Works/logo2_opokyt.jpg"
                 alt="Logo Watermark"
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, 48"
+                sizes="(max-width: 480px) 95vw, (max-width: 640px) 90vw, (max-width: 1280px) 50vw, (max-width: 1536px) 33vw, 25vw"
               />
             </div>
 
@@ -219,7 +219,7 @@ export default function ContactPage() {
                 alt={image.alt}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 20vw"
+                sizes="(max-width: 480px) 95vw, (max-width: 640px) 90vw, (max-width: 1280px) 50vw, (max-width: 1536px) 33vw, 25vw"
               />
             </div>
           ))}

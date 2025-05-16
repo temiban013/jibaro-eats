@@ -36,7 +36,7 @@ export default function Navigation() {
                 src="/jibaro-logo.png"
                 alt="Jibaro Media"
                 fill
-                sizes="(max-width: 768px) 100vw, 48px"
+                sizes="(max-width: 480px) 95vw, (max-width: 640px) 90vw, (max-width: 1280px) 50vw, (max-width: 1536px) 33vw, 25vw"
                 className="object-cover"
               />
             </div>
