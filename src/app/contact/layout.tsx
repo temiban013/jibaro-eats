@@ -12,11 +12,25 @@ export const metadata: Metadata = {
   title: "Contact Jibaro Media",
   description:
     "Get in touch with our team for photography and media production services",
+  keywords: [
+    "Jibaro Media",
+    "Jibaro Eats",
+    "Jibaro",
+    "Jibaro Media Group",
+    "Frank Vázquez",
+    "photography",
+    "media production",
+    "advertising agency",
+    "Puerto Rico",
+    "Texas",
+    "video production",
+    "graphic design",
+    "web design",
+  ],
   alternates: {
     canonical: "/contact",
     languages: {
       "en-US": "/en-US",
-      "es-US": "/es-US",
     },
   },
   openGraph: {
