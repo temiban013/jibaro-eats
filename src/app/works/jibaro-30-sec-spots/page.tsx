@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import VideoPage from "../../../components/VideoPage";
 import getCloudImages from "@/utils/getCloudImages";

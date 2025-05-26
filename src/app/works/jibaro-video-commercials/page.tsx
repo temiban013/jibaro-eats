@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import VideoPage from "../../../components/VideoPage";
 import getCloudImages from "../../../utils/getCloudImages";
@@ -43,48 +43,38 @@ const videos = [
   },
   {
     id: "5",
-    videoId: "J-Wd7fpn8bk",
-    title: "Chalio's Restaurant",
-  },
-  {
-    id: "6",
     videoId: "C520Klh75oU",
     title: "Jobes Hats (The Rodeo Hat)",
   },
   {
-    id: "7",
+    id: "6",
     videoId: "-n-Ivm-asnY",
     title: "Bad Azz Burrito ad 2",
   },
   {
-    id: "8",
+    id: "7",
     videoId: "RBkGdFYIpc8",
     title: "Elotes Tapia",
   },
   {
-    id: "9",
+    id: "8",
     videoId: "Zb2Gg5W7r3s",
     title: "Bayamon Hospital HD",
   },
   {
-    id: "10",
+    id: "9",
     videoId: "xJuKJNan2gg",
     title: "Signature Gallery Furniture",
   },
   {
-    id: "11",
+    id: "10",
     videoId: "sLJ-Fe3lub0",
     title: "Cambridge Chicago",
   },
   {
-    id: "12",
+    id: "11",
     videoId: "LXuu2_0ji7k",
     title: "Cambridge Puerto Rico (Delaware)",
-  },
-  {
-    id: "13",
-    videoId: "oL2F3ds7HtY",
-    title: "Botanas Lokas",
   },
 ];
 
