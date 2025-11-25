@@ -10,7 +10,7 @@ export default async function getCloudImages(folder: string) {
       return { reducedResults: [] };
     }
 
-    const results = await cloudinary.v2.search
+    const results = await cloudinary.search
       .expression(`folder:${folder}/*`)
       .with_field("metadata")
       .sort_by("public_id", "desc")

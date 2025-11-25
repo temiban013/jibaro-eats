@@ -14,15 +14,15 @@
     "@react-typed-hooks/use-key-press": "^1.0.5",
     "@types/lodash": "^4.17.16",
     "@types/react-dom": "19.0.3",
-    "cloudinary": "^1.40.0",
+    "cloudinary": "^2.7.0",
     "eslint": "9.19.0",
-    "eslint-config-next": "15.1.6",
+    "eslint-config-next": "^15.2.3",
     "express-rate-limit": "^7.5.0",
     "framer-motion": "^10.16.4",
     "lodash": "^4.17.21",
-    "next": "15.1.6",
-    "next-auth": "^4.24.11",
-    "nodemailer": "^6.10.1",
+    "next": "^15.2.3",
+    "next-auth": "^4.24.12",
+    "nodemailer": "^7.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-google-recaptcha": "^3.1.0",
@@ -38,10 +38,21 @@
     "@types/react": "18.2.21",
     "@types/react-google-recaptcha": "^2.1.9",
     "autoprefixer": "10.4.15",
-    "postcss": "8.4.29",
+    "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "tar-fs": ">=3.0.9",
+      "glob": ">=10.5.0",
+      "body-parser": ">=2.2.1",
+      "js-yaml": ">=4.1.1",
+      "@eslint/plugin-kit": ">=0.3.4",
+      "brace-expansion": ">=2.0.2"
+    },
+    "onlyBuiltDependencies": ["sharp"]
   }
 }
