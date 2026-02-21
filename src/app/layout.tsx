@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import Navigation from "@/components/Navigation";
+import { NitainoCredit } from "@/components/shared/nitaino-credit";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -199,6 +200,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        <NitainoCredit lang="es" variant="minimal" utmSource="jibaro-eats" />
       </body>
     </html>
   );
