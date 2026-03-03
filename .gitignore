@@ -33,3 +33,28 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# shell configs
+.bash_profile
+.bashrc
+.profile
+.zprofile
+.zshrc
+
+# IDE
+.idea
+.vscode
+
+# tool configs
+.claude/
+.mcp.json
+.ripgreprc
+.gitconfig
+.gitmodules
+
+# stray git internals
+HEAD
+config
+hooks
+objects
+refs
