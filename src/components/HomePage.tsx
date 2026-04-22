@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import type { ImageProps } from "@/utils/types";
 import JibaroCard from "./JibaroCard";
@@ -16,18 +15,22 @@ export default function HomePage({ images, jibaroName }: HomePageProps) {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
     null
   );
-  const lastViewedPhotoRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    if (selectedImageIndex !== null) {
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }
+  }, [selectedImageIndex]);
 
   const openCarousel = (index: number) => {
     setSelectedImageIndex(index);
-    // Prevent body scrolling when carousel is open
-    document.body.style.overflow = "hidden";
   };
 
   const closeCarousel = () => {
     setSelectedImageIndex(null);
-    // Restore body scrolling when carousel is closed
-    document.body.style.overflow = "";
   };
 
   return (
