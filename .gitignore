@@ -47,6 +47,7 @@ next-env.d.ts
 
 # tool configs
 .claude/
+CLAUDE.md
 .project/
 .mcp.json
 .ripgreprc

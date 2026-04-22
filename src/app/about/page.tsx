@@ -33,9 +33,6 @@ export default function AboutPage() {
           <Link href="/works" className="text-blue-500 hover:text-blue-700">
             Works
           </Link>
-          <Link href="/contact" className="text-blue-500 hover:text-blue-700">
-            Contact Us
-          </Link>
         </nav>
       </div>
 

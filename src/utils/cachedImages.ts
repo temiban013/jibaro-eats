@@ -1,6 +1,10 @@
 import cloudinary from './cloudinary'
 
-let cachedResults: any
+type CloudinarySearchResult = Awaited<
+  ReturnType<ReturnType<typeof cloudinary.search.expression>['execute']>
+>
+
+let cachedResults: CloudinarySearchResult | undefined
 
 export default async function getResults(folder: string) {
   if (!cachedResults) {
