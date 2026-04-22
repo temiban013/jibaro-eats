@@ -126,11 +126,6 @@ export default function RootLayout({
                       About Us
                     </Link>
                   </li>
-                  <li>
-                    <Link href="/contact" className="hover:text-blue-400">
-                      Contact
-                    </Link>
-                  </li>
                 </ul>
               </div>
 

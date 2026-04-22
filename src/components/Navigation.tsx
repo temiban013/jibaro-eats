@@ -13,7 +13,6 @@ export default function Navigation() {
     { name: "Home", path: "/" },
     { name: "Works", path: "/works" },
     { name: "About", path: "/about" },
-    { name: "Contact Us", path: "/contact" },
   ];
 
   const isActive = (path: string): boolean => {
