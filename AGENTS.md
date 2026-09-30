@@ -6,7 +6,7 @@ When writing Next.js code, consult the version-matched docs at
 <!-- END:nextjs-agent-rules -->
 
 ## Quick Facts
-- Stack: Next.js 16.2.6, React 19, TypeScript, Tailwind CSS 3, pnpm
+- Stack: Next.js 16.3.8, React 19, TypeScript, Tailwind CSS 3, pnpm
 - Entry: `src/app/page.tsx` or `app/page.tsx`
 - Run: `pnpm build && pnpm lint`
 - Type: Food/restaurant web app
